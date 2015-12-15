@@ -9,14 +9,11 @@ import javax.persistence.OneToOne;
  * Created by Administrator on 2015-12-15.
  */
 @Entity
-public class Client extends BaseEntity {
+public class Client extends Person {
 
     @OneToOne
     @JoinColumn(name = "contact_id")
     private Contact contact;
-
-    @Embedded
-    private Person person;
 
     public Contact getContact() {
         return contact;
@@ -26,11 +23,4 @@ public class Client extends BaseEntity {
         this.contact = contact;
     }
 
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
 }

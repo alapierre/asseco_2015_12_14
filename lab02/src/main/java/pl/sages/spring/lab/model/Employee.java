@@ -8,9 +8,7 @@ import javax.persistence.*;
  * Created by Administrator on 2015-12-15.
  */
 @Entity
-public class Employee extends BaseEntity{
-    @Embedded
-    private Person person;
+public class Employee extends Person{
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
