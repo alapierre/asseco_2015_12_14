@@ -10,10 +10,14 @@ import javax.validation.constraints.NotNull;
 @Table(name="INVOICE_ITEMS")
 public class InvoiceItem {
 
-    @Column(name="ID")
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "INVOICE_ITEM_ID", unique = true, nullable = false)
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "INVOICE_ID", nullable = false)
+    private Invoice invoice;
 
     @Column(name="NAME")
     private String name;

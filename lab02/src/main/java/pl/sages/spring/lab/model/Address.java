@@ -9,9 +9,9 @@ import javax.persistence.*;
 @Table(name="ADDRESSES")
 public class Address {
 
-    @Column(name="ID")
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ADDRESS_ID", unique = true, nullable = false)
     private Long id;
 
     @Column(name="CITY")

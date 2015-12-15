@@ -12,9 +12,9 @@ import java.util.List;
 @Table(name="INVOICES")
 public class Invoice {
 
-    @Column(name="ID")
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "INVOICE_ID", unique = true, nullable = false)
     private Long id;
 
     @Column(name="SELLER_ADDRESS")
@@ -27,7 +27,7 @@ public class Invoice {
 
     @Column(name="ITEM")
     @ElementCollection()
-    @ManyToOne
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "invoice")
     private List<InvoiceItem> items;
 
     @Column(name="PAYMENT_METHOD")
