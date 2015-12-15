@@ -1,30 +1,27 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
-/**
- * Created by Administrator on 2015-12-15.
- */
 @Entity
-public class Product extends BaseEntity {
-
+public class Product extends BaseEntity{
     private String catalogNumber;
     private String name;
     private String description;
     private String descriptionLink;
+    private long stockCount;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     Set<ProductPrice> prices;
 
-    public long getId() {
-        return id;
-    }
+    @ManyToMany
+    @JoinTable(name = "PRODUCT_CATEGORIES", joinColumns=@JoinColumn(name="PRODUCT_ID"), inverseJoinColumns = @JoinColumn(name="CATEGORY_ID"))
+    private Collection<Category> categories;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @OneToOne
+    @JoinColumn(name = "MANUFACTURER_ID")
+    private Manufacturer manufacturer;
 
     public String getCatalogNumber() {
         return catalogNumber;

@@ -1,17 +1,10 @@
 package pl.sages.spring.lab.model;
 
+import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-
-/**
- * Created by Administrator on 2015-12-15.
- */
+import javax.persistence.*;
 
 @Entity
 public class Category  extends BaseEntity {
@@ -22,6 +15,9 @@ public class Category  extends BaseEntity {
 
     @OneToMany(mappedBy = "parent", orphanRemoval = true, cascade = CascadeType.ALL)
     private Set<Category> children = new LinkedHashSet<>();
+
+    @ManyToMany(mappedBy="categories")
+    private Collection<Product> products;
 
     private String name;
     private String description;
