@@ -16,7 +16,7 @@ public class Category  extends BaseEntity {
     @OneToMany(mappedBy = "parent", orphanRemoval = true, cascade = CascadeType.ALL)
     private Set<Category> children = new LinkedHashSet<>();
 
-    @ManyToMany(mappedBy="categories")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy="categories", cascade = CascadeType.ALL)
     private Collection<Product> products;
 
     private String name;
