@@ -1,14 +1,16 @@
 package pl.sages.spring.lab.model;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.Set;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-public class Product {
-    private long id;
+@Entity
+public class Product extends BaseEntity {
+
     private String catalogNumber;
     private String name;
     private String description;
