@@ -13,6 +13,8 @@ public class Client {
     @GeneratedValue
     private long id;
     private long addressId;
+    private long personId;
+
 
     public long getPersonId() {
         return personId;
@@ -21,8 +23,6 @@ public class Client {
     public void setPersonId(long personId) {
         this.personId = personId;
     }
-
-    private long personId;
 
     public long getId() {
         return id;
