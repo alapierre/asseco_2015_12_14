@@ -2,6 +2,7 @@ package pl.sages.spring.lab.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -10,7 +11,7 @@ import javax.validation.constraints.NotNull;
 /**
  * Created by Administrator on 2015-12-15.
  */
-//@Entity
+@Entity
 public class VatCategory extends BaseEntity {
 
     private String category;
