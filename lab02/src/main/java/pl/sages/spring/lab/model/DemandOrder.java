@@ -1,7 +1,6 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.List;
 
 /**
  * Created by Administrator on 2015-12-15.
