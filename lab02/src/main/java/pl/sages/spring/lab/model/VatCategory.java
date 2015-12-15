@@ -11,10 +11,8 @@ import javax.validation.constraints.NotNull;
  * Created by Administrator on 2015-12-15.
  */
 //@Entity
-public class VatCategory {
+public class VatCategory extends BaseEntity {
 
-    @Id
-    private long id;
     private String category;
     private int rate;
     @Temporal(TemporalType.DATE)
@@ -22,14 +20,6 @@ public class VatCategory {
     private Date dateFrom;
     @Temporal(TemporalType.DATE)
     private Date dateTo;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public Integer getRate() {
         return rate;
