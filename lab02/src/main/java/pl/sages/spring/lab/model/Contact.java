@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Administrator on 2015-12-15.
  */
 @Entity
-public class Contact {
+public class Contact extends BaseEntity{
 
     @Embedded
     private Address address;
