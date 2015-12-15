@@ -15,7 +15,7 @@ public class Product extends BaseEntity{
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     Set<ProductPrice> prices;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY,  cascade = CascadeType.ALL)
     @JoinTable(name = "PRODUCT_CATEGORIES", joinColumns=@JoinColumn(name="PRODUCT_ID"), inverseJoinColumns = @JoinColumn(name="CATEGORY_ID"))
     private Collection<Category> categories;
 
