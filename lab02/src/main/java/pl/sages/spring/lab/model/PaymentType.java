@@ -7,5 +7,16 @@ package pl.sages.spring.lab.model;
  * @author Adrian Lapierre {@literal <adrian@soft-project.pl>}
  */
 public enum PaymentType {
-    CARD, CASH, CHECK
+
+    CARD("Karta"), CASH("Gotówka"), CHECK("Czek");
+
+    PaymentType(String label) {
+        this.label = label;
+    }
+
+    private String label;
+
+    public String getLabel() {
+        return label;
+    }
 }
