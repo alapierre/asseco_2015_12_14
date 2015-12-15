@@ -18,7 +18,6 @@ public class Order extends BaseEntity {
     private Date orderDate;
 
     @Column(name="ITEM")
-    @ElementCollection()
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "order", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<OrderItem> items;
 
