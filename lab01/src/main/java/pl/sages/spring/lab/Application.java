@@ -4,6 +4,7 @@
 package pl.sages.spring.lab;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -13,11 +14,16 @@ public class Application {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+        context.registerShutdownHook();
 
-        Person p = (Person) context.getBean("person");
+        Person p = (Person) context.getBean("person", Person.class);
 
         System.out.println(p);
+
+//        System.out.println(context.getBean("adress1", Adress.class));
+//
+//        System.out.println(context.getBean("userServiceImpl", UserServiceImpl.class));
 
     }
 
