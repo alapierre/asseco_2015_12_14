@@ -1,6 +1,6 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * Created by Administrator on 2015-12-15.
@@ -8,13 +8,16 @@ import javax.persistence.Entity;
 @Entity
 public class ClientOrder extends Order {
 
-    private Long clientId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CLIENT_ID")
+    private Client client;
 
-    public Long getClientId() {
-        return clientId;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClientId(Long clientId) {
-        this.clientId = clientId;
+    public void setClient(Client client) {
+        this.client = client;
     }
+
 }
