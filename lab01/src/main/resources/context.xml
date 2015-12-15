@@ -7,10 +7,31 @@
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:annotation-config/>
+    <context:component-scan base-package="pl.sages" />
 
-    <bean name="person" class="pl.sages.spring.lab.Person"/>
+    <context:property-placeholder location="system.properties" />
 
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="pl.sages.spring.lab.Adress" value ="pl.sages.spring.lab.AdressConverter"/>
+            </map>
+        </property>
+    </bean>
+    <!--<bean name="person" class="pl.sages.spring.lab.Person">-->
+        <!--<property name="name" value="Jan" />-->
+        <!--<property name="lastName" value="Kowalski" />-->
+        <!--<property name="adress" value="Gdansk:Warszawska:5" />-->
+    <!--</bean>-->
 
+    <!--<bean name="person2" class="pl.sages.spring.lab.Person"/>-->
+
+    <!--<bean name="adress1" class="pl.sages.spring.lab.Adress">-->
+        <!--&lt;!&ndash;<property name="city" value="${city}" />&ndash;&gt;-->
+        <!--<property name="street" value="Marszałkowska" />-->
+        <!--<property name="number" value="5" />-->
+    <!--</bean>-->
     <!-- Zdefiniuj bean Person -->
 
     <!-- Skonfiguruj obslugę adnotacji -->
