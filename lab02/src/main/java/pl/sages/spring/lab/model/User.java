@@ -10,6 +10,11 @@ import javax.persistence.Table;
 /**
  * @author Adrian Lapierre {@literal <adrian@soft-project.pl>}
  */
+
+// Produkty (Product)
+// Kategorie (Category)
+// Producenci (Manufacturer)
+
 @Entity
 @Table(name = "users")
 public class User {
