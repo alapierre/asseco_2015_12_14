@@ -7,6 +7,7 @@ import java.util.List;
  * Created by Administrator on 2015-12-15.
  */
 @Entity
+@DiscriminatorValue("demand")
 public class DemandOrder extends Order{
 
     @ManyToOne(fetch = FetchType.LAZY)

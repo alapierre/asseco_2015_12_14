@@ -8,9 +8,11 @@ import javax.persistence.*;
 /**
  * Created by Administrator on 2015-12-15.
  */
-//@Entity
-//@Table(name = "Orders")
-public class Order extends BaseEntity {
+@Entity
+@Table(name = "Orders")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "ORDER_TYPE")
+public abstract class Order extends BaseEntity {
 
 
     @Column(name = "ORDER_DATE")
