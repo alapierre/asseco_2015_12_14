@@ -9,7 +9,7 @@ import java.util.List;
  * Created by Administrator on 2015-12-15.
  */
 @Entity
-@Table(name="invoices")
+@Table(name="INVOICES")
 public class Invoice {
 
     @Column(name="ID")
@@ -27,7 +27,8 @@ public class Invoice {
 
     @Column(name="ITEM")
     @ElementCollection()
-    private List<InvoiceItem> invoiceItems;
+    @ManyToOne
+    private List<InvoiceItem> items;
 
     @Column(name="PAYMENT_METHOD")
     private String paymentMethod;
@@ -60,12 +61,12 @@ public class Invoice {
         this.buyerAddress = buyerAddress;
     }
 
-    public List<InvoiceItem> getInvoiceItems() {
-        return invoiceItems;
+    public List<InvoiceItem> getItems() {
+        return items;
     }
 
-    public void setInvoiceItems(List<InvoiceItem> invoiceItems) {
-        this.invoiceItems = invoiceItems;
+    public void setItems(List<InvoiceItem> items) {
+        this.items = items;
     }
 
     public String getPaymentMethod() {
