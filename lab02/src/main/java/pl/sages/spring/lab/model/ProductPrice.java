@@ -2,34 +2,26 @@ package pl.sages.spring.lab.model;
 
 import java.util.Date;
 
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-//@Entity
-public class ProductPrice {
+@Entity
+public class ProductPrice extends BaseEntity {
 
-    @Id
-    private long id;
     @NotNull
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
-    private double price;
+    private int price;
     @Temporal(TemporalType.DATE)
     @NotNull
     private Date dateFrom;
+    @OneToOne
+    @JoinColumn(name = "VAT_CATEGORY")
     private VatCategory vatCategory;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public Product getProduct() {
         return product;
@@ -39,11 +31,11 @@ public class ProductPrice {
         this.product = product;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

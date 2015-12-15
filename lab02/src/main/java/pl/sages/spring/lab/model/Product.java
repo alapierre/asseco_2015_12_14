@@ -1,5 +1,7 @@
 package pl.sages.spring.lab.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
 import java.util.Set;
 
 /**
@@ -11,6 +13,7 @@ public class Product {
     private String name;
     private String description;
     private String descriptionLink;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     Set<ProductPrice> prices;
 
     public long getId() {

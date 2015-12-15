@@ -3,7 +3,7 @@ package pl.sages.spring.lab.model;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 /**
  * Created by Administrator on 2015-12-15.
@@ -12,30 +12,21 @@ import javax.persistence.OneToMany;
 //@Table(name = "Orders")
 public class Order extends BaseEntity {
 
-    private Date date;
 
-    @OneToMany
-    private List<OrderElement> positions;
+    @Column(name = "ORDER_DATE")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date orderDate;
 
+    @Column(name="ITEM")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<OrderItem> items;
 
-    public List<OrderElement> getPositions() {
-        return positions;
+    public Date getOrderDate() {
+        return orderDate;
     }
 
-    public void setPositions(List<OrderElement> positions) {
-        this.positions = positions;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-
-    //    private Address RecipientAddress;
-    //    private Address SenderAddress;
 
 }

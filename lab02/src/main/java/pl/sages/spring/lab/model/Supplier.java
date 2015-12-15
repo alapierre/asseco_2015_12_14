@@ -1,19 +1,23 @@
 package pl.sages.spring.lab.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-//@Entity
+@Entity
 public class Supplier {
 
     @Id
     private Long supplierId;
     private String name;
-    private String phoneNumebr;
-    private String email;
-    private String nip;
+
+    @OneToOne
+    private Contact contact;
+
     private String ownerName;
     private String ownerSuername;
     private String ownerPhoneNumber;
@@ -33,30 +37,6 @@ public class Supplier {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPhoneNumebr() {
-        return phoneNumebr;
-    }
-
-    public void setPhoneNumebr(String phoneNumebr) {
-        this.phoneNumebr = phoneNumebr;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getNip() {
-        return nip;
-    }
-
-    public void setNip(String nip) {
-        this.nip = nip;
     }
 
     public String getOwnerName() {
@@ -89,5 +69,13 @@ public class Supplier {
 
     public void setOwnerEmail(String ownerEmail) {
         this.ownerEmail = ownerEmail;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 }
