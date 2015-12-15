@@ -17,13 +17,13 @@ public class Invoice {
     @Column(name = "INVOICE_ID", unique = true, nullable = false)
     private Long id;
 
-    @Column(name="SELLER_ADDRESS")
+    @Column(name="SELLER_CONTACT")
     @NotNull
-    private Address sellerAddress;
+    private Contact sellerContact;
 
-    @Column(name="BUYER_ADDRESS")
+    @Column(name="BUYER_CONTACT")
     @NotNull
-    private Address buyerAddress;
+    private Contact buyerContact;
 
     @Column(name="ITEM")
     @ElementCollection()
@@ -45,20 +45,20 @@ public class Invoice {
         this.id = id;
     }
 
-    public Address getSellerAddress() {
-        return sellerAddress;
+    public Contact getSellerAddress() {
+        return sellerContact;
     }
 
-    public void setSellerAddress(Address sellerAddress) {
-        this.sellerAddress = sellerAddress;
+    public void setSellerAddress(Contact sellerAddress) {
+        this.sellerContact = sellerAddress;
     }
 
-    public Address getBuyerAddress() {
-        return buyerAddress;
+    public Contact getBuyerAddress() {
+        return buyerContact;
     }
 
-    public void setBuyerAddress(Address buyerAddress) {
-        this.buyerAddress = buyerAddress;
+    public void setBuyerAddress(Contact buyerAddress) {
+        this.buyerContact = buyerAddress;
     }
 
     public List<InvoiceItem> getItems() {
