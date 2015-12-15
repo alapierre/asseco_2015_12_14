@@ -62,5 +62,4 @@ public class Product extends BaseEntity{
     public void setPrices(Set<ProductPrice> prices) {
         this.prices = prices;
     }
-
 }
