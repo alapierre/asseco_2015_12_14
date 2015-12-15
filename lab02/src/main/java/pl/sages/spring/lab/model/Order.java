@@ -19,8 +19,9 @@ public abstract class Order extends BaseEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate;
 
-    @Column(name="ITEM")
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order", orphanRemoval = true, cascade = CascadeType.ALL)
+
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ORDER_ID")
     private List<OrderItem> items;
 
     public Date getOrderDate() {
