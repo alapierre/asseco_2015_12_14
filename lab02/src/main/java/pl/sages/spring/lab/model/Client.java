@@ -3,6 +3,12 @@ package pl.sages.spring.lab.model;
 /**
  * Created by Administrator on 2015-12-15.
  */
+//@Entity
+public class Client {
+    @Id
+    @GeneratedValue
+    private long id;
+    private long addressId;
 
 public class Client extends BaseEntity {
 
