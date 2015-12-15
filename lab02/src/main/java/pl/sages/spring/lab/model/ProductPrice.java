@@ -2,9 +2,7 @@ package pl.sages.spring.lab.model;
 
 import java.util.Date;
 
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -16,8 +14,10 @@ public class ProductPrice {
     @Id
     private long id;
     @NotNull
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
-    private double price;
+    private int price;
     @Temporal(TemporalType.DATE)
     @NotNull
     private Date dateFrom;
@@ -39,11 +39,11 @@ public class ProductPrice {
         this.product = product;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
