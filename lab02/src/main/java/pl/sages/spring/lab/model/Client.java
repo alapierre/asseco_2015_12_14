@@ -12,11 +12,17 @@ public class Client {
     @Id
     @GeneratedValue
     private long id;
-    private String name;
-    private String lastName;
-    private String documentId;
-
     private long addressId;
+
+    public long getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(long personId) {
+        this.personId = personId;
+    }
+
+    private long personId;
 
     public long getId() {
         return id;
@@ -24,30 +30,6 @@ public class Client {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getDocumentId() {
-        return documentId;
-    }
-
-    public void setDocumentId(String documentId) {
-        this.documentId = documentId;
     }
 
     public long getAddressId() {
