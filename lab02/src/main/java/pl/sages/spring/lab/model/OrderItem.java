@@ -14,10 +14,6 @@ public class OrderItem extends BaseEntity{
     @JoinColumn(name="PRODUCT_ID")
     private Product product;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ORDER_ID", nullable = false)
-    private Order order;
-
     @Column(name = "ORDERED_QUANTITY")
     @NotNull
     private Long orderedQuantity;
@@ -31,13 +27,7 @@ public class OrderItem extends BaseEntity{
     }
 
 
-    public Order getOrder() {
-        return order;
-    }
 
-    public void setOrder(Order order) {
-        this.order = order;
-    }
 
     public void setId(Long id) {
         this.id = id;
