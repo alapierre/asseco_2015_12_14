@@ -1,5 +1,7 @@
 package pl.sages.spring.lab.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 /**
@@ -10,6 +12,7 @@ public class DemandOrder extends Order{
 
     private Long supplierId;
 
+    @OneToMany(mappedBy = "order", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<OrderElement> orderElements;
 
     public Long getSupplierId() {
