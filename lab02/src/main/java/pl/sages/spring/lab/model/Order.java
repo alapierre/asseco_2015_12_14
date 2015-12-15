@@ -13,12 +13,12 @@ import javax.persistence.*;
 public class Order extends BaseEntity {
 
 
+    @Column(name = "ORDER_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate;
 
     @Column(name="ITEM")
-    @ElementCollection()
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<OrderItem> items;
 
     public Date getOrderDate() {

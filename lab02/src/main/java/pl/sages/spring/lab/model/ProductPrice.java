@@ -19,6 +19,8 @@ public class ProductPrice extends BaseEntity {
     @Temporal(TemporalType.DATE)
     @NotNull
     private Date dateFrom;
+    @OneToOne
+    @JoinColumn(name = "VAT_CATEGORY")
     private VatCategory vatCategory;
 
     public Product getProduct() {
