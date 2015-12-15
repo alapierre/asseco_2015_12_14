@@ -8,11 +8,9 @@ import javax.validation.constraints.NotNull;
 /**
  * Created by Administrator on 2015-12-15.
  */
-//@Entity
-public class ProductPrice {
+@Entity
+public class ProductPrice extends BaseEntity {
 
-    @Id
-    private long id;
     @NotNull
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")
@@ -22,14 +20,6 @@ public class ProductPrice {
     @NotNull
     private Date dateFrom;
     private VatCategory vatCategory;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public Product getProduct() {
         return product;
