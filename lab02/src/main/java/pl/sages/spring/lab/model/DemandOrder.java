@@ -10,8 +10,6 @@ public class DemandOrder extends Order{
 
     private Long supplierId;
 
-    private List<OrderElement> orderElements;
-
     public Long getSupplierId() {
         return supplierId;
     }
@@ -20,11 +18,4 @@ public class DemandOrder extends Order{
         this.supplierId = supplierId;
     }
 
-    public List<OrderElement> getOrderElements() {
-        return orderElements;
-    }
-
-    public void setOrderElements(List<OrderElement> orderElements) {
-        this.orderElements = orderElements;
-    }
 }
