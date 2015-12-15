@@ -1,33 +1,33 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-
+@Entity
 public class DemandOrder extends Order{
 
-    private Long supplierId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Supplier supplier;
 
-    @OneToMany(mappedBy = "order", orphanRemoval = true, cascade = CascadeType.ALL)
-    private List<OrderElement> orderElements;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<OrderItem> orderElements;
 
-    public Long getSupplierId() {
-        return supplierId;
+    public Supplier getSupplier() {
+        return supplier;
     }
 
-    public void setSupplierId(Long supplierId) {
-        this.supplierId = supplierId;
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 
-    public List<OrderElement> getOrderElements() {
+    public List<OrderItem> getOrderElements() {
         return orderElements;
     }
 
-    public void setOrderElements(List<OrderElement> orderElements) {
+    public void setOrderElements(List<OrderItem> orderElements) {
         this.orderElements = orderElements;
     }
 }
