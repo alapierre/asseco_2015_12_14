@@ -1,5 +1,7 @@
 package pl.sages.spring.lab.model;
 
+import java.util.Set;
+
 /**
  * Created by Administrator on 2015-12-15.
  */
@@ -9,6 +11,7 @@ public class Product {
     private String name;
     private String description;
     private String descriptionLink;
+    Set<ProductPrice> prices;
 
     public long getId() {
         return id;
@@ -48,5 +51,13 @@ public class Product {
 
     public void setDescriptionLink(String descriptionLink) {
         this.descriptionLink = descriptionLink;
+    }
+
+    public Set<ProductPrice> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(Set<ProductPrice> prices) {
+        this.prices = prices;
     }
 }
