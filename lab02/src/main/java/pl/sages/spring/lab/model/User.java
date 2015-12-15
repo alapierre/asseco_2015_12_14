@@ -1,7 +1,5 @@
 package pl.sages.spring.lab.model;
 
-import com.sun.istack.internal.Nullable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -10,21 +8,13 @@ import javax.persistence.Table;
  * Created by Administrator on 2015-12-15.
  */
 @Entity
-@Table(name="users")
+@Table(name = "Users")
 public class User {
 
     @Id
     private String login;
     private String password;
     private boolean enabled = true;
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 
     public String getLogin() {
         return login;
@@ -42,6 +32,13 @@ public class User {
         this.password = password;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
     @Override
     public String toString() {
