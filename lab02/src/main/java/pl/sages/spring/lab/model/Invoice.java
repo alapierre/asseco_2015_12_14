@@ -3,7 +3,9 @@ package pl.sages.spring.lab.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Administrator on 2015-12-15.
@@ -17,15 +19,15 @@ public class Invoice extends BaseEntity{
     @NotNull
     private Contact buyer;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "invoice")
-    private List<InvoiceItem> items;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "invoice" , orphanRemoval = true, cascade = CascadeType.ALL)
+    private Set<InvoiceItem> items = new LinkedHashSet<>();
 
     @Column(name="PAYMENT_METHOD")
     private String paymentMethod;
 
     @Column(name="PAYMENT_DATE")
     @Temporal(TemporalType.DATE)
-    private Date paymentDate;
+    private Date paymentDate = new Date();
 
     public Contact getSeller() {
         return seller;
@@ -43,11 +45,11 @@ public class Invoice extends BaseEntity{
         this.buyer = buyer;
     }
 
-    public List<InvoiceItem> getItems() {
+    public Set<InvoiceItem> getItems() {
         return items;
     }
 
-    public void setItems(List<InvoiceItem> items) {
+    public void setItems(Set<InvoiceItem> items) {
         this.items = items;
     }
 
@@ -65,5 +67,14 @@ public class Invoice extends BaseEntity{
 
     public void setPaymentDate(Date paymentDate) {
         this.paymentDate = paymentDate;
+    }
+
+    public Invoice addItem(InvoiceItem item) {
+
+        item.setInvoice(this);
+        items.add(item);
+
+        return this;
+
     }
 }
