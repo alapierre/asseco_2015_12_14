@@ -2,27 +2,27 @@ package pl.sages.spring.lab.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import java.util.Set;
 
-/**
- * Created by Administrator on 2015-12-15.
- */
-public class Product {
-    private long id;
+public class Product extends BaseEntity{
     private String catalogNumber;
     private String name;
     private String description;
     private String descriptionLink;
+    private long stockCount;
+
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     Set<ProductPrice> prices;
 
-    public long getId() {
-        return id;
-    }
+    @OneToOne
+    @JoinColumn(name = "CATEGORY_ID")
+    private Category category;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @OneToOne
+    @JoinColumn(name = "MANUFACTURER_ID")
+    private Manufacturer manufacturer;
 
     public String getCatalogNumber() {
         return catalogNumber;
@@ -62,5 +62,13 @@ public class Product {
 
     public void setPrices(Set<ProductPrice> prices) {
         this.prices = prices;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

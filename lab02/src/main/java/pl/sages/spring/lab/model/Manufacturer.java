@@ -1,20 +1,8 @@
 package pl.sages.spring.lab.model;
 
-/**
- * Created by Administrator on 2015-12-15.
- */
-public class Manufacturer {
-    private long id;
+public class Manufacturer extends BaseEntity{
     private String companyName;
     private String location;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getCompanyName() {
         return companyName;
