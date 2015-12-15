@@ -16,7 +16,7 @@ public class Order {
 
     private Date date;
 
-    @ManyToOne
+    @OneToMany
     private List<OrderElement> positions;
 
     public Long getId() {
