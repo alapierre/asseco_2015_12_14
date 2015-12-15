@@ -13,7 +13,7 @@ public class DemandOrder extends Order{
     private Supplier supplier;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<OrderItem> orderElements;
+    private List<OrderItem> orderItems;
 
     public Supplier getSupplier() {
         return supplier;
@@ -23,11 +23,11 @@ public class DemandOrder extends Order{
         this.supplier = supplier;
     }
 
-    public List<OrderItem> getOrderElements() {
-        return orderElements;
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 
-    public void setOrderElements(List<OrderItem> orderElements) {
-        this.orderElements = orderElements;
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 }
