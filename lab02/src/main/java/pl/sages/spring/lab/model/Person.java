@@ -1,12 +1,14 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-@Embeddable
-public class Person{
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "PERSON_TYPE")
+public abstract class Person extends BaseEntity{
     private String name;
     private String lastName;
     private String nip;
