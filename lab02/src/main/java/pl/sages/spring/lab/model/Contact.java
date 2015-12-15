@@ -5,8 +5,8 @@ import javax.persistence.*;
 /**
  * Created by Administrator on 2015-12-15.
  */
-@Entity
-@Table(name="CONTACT")
+//@Entity
+//@Table(name="CONTACT")
 public class Contact {
 
     @Id

@@ -1,13 +1,18 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-@Entity
-@Table(name="INVOICE_ITEMS")
+//@Entity
+//@Table(name="INVOICE_ITEMS")
 public class InvoiceItem {
 
     @Id

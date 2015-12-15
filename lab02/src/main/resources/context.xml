@@ -25,6 +25,8 @@
     <!-- Placeholder config -->
     <context:property-placeholder location="classpath:system.properties" />
 
+    <context:component-scan base-package="pl.sages.spring.lab"/>
+
     <!--<jpa:repositories base-package="pl.sages.spring.lab.dao"/>-->
 
     <!-- Data source -->

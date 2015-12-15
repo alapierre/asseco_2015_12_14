@@ -1,15 +1,24 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-@Entity
-@Table(name="INVOICES")
+//@Entity
+//@Table(name="INVOICES")
 public class Invoice {
 
     @Id

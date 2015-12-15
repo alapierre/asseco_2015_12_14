@@ -1,31 +1,22 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.OneToMany;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-@Entity
-@Table(name = "Orders")
-public class Order {
-
-    @Id
-    private Long id;
+//@Entity
+//@Table(name = "Orders")
+public class Order extends BaseEntity {
 
     private Date date;
 
     @OneToMany
     private List<OrderElement> positions;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public List<OrderElement> getPositions() {
         return positions;
