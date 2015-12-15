@@ -14,9 +14,11 @@ import java.util.Set;
 public class Invoice extends BaseEntity{
 
     @NotNull
+    @ManyToOne
     private Contact seller;
 
     @NotNull
+    @ManyToOne
     private Contact buyer;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "invoice" , orphanRemoval = true, cascade = CascadeType.ALL)

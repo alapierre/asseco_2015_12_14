@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
  * Created by Administrator on 2015-12-15.
  */
 
+@Entity
 public class OrderItem extends BaseEntity{
 
     @OneToOne
