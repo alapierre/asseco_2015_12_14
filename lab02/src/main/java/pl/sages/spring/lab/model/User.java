@@ -1,6 +1,3 @@
-/**
- * Copyright 2015-12-15 the original author or authors.
- */
 package pl.sages.spring.lab.model;
 
 import javax.persistence.Entity;
@@ -8,10 +5,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @author Adrian Lapierre {@literal <adrian@soft-project.pl>}
+ * Created by Administrator on 2015-12-15.
  */
 @Entity
-@Table(name = "users")
+@Table(name = "Users")
 public class User {
 
     @Id
@@ -46,9 +43,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-               "login='" + login + '\'' +
-               ", password='" + password + '\'' +
-               ", enabled=" + enabled +
-               '}';
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                '}';
     }
 }
