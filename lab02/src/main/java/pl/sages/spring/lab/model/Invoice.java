@@ -1,41 +1,22 @@
 package pl.sages.spring.lab.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-//@Entity
-//@Table(name="INVOICES")
-public class Invoice {
+@Entity
+public class Invoice extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "INVOICE_ID", unique = true, nullable = false)
-    private Long id;
-
-    @Column(name="SELLER_CONTACT")
     @NotNull
-    private Contact sellerContact;
+    private Contact seller;
 
-    @Column(name="BUYER_CONTACT")
     @NotNull
-    private Contact buyerContact;
+    private Contact buyer;
 
-    @Column(name="ITEM")
-    @ElementCollection()
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "invoice")
     private List<InvoiceItem> items;
 
@@ -46,28 +27,20 @@ public class Invoice {
     @Temporal(TemporalType.DATE)
     private Date paymentDate;
 
-    public Long getId() {
-        return id;
+    public Contact getSeller() {
+        return seller;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSeller(Contact seller) {
+        this.seller = seller;
     }
 
-    public Contact getSellerAddress() {
-        return sellerContact;
+    public Contact getBuyer() {
+        return buyer;
     }
 
-    public void setSellerAddress(Contact sellerAddress) {
-        this.sellerContact = sellerAddress;
-    }
-
-    public Contact getBuyerAddress() {
-        return buyerContact;
-    }
-
-    public void setBuyerAddress(Contact buyerAddress) {
-        this.buyerContact = buyerAddress;
+    public void setBuyer(Contact buyer) {
+        this.buyer = buyer;
     }
 
     public List<InvoiceItem> getItems() {

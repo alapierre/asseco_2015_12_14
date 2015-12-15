@@ -1,53 +1,54 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import com.sun.istack.internal.Nullable;
+
+import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-//@Entity
-//@Table(name="INVOICE_ITEMS")
-public class InvoiceItem {
+@Entity
+public class InvoiceItem extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "INVOICE_ITEM_ID", unique = true, nullable = false)
-    private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "INVOICE_ID", nullable = false)
     private Invoice invoice;
 
-    @Column(name="NAME")
+    @OneToOne
+    @JoinColumn(name = "PRODUCT_ID", nullable = false)
+    private Product product;
+
+    @NotNull
     private String name;
 
-    @Column(name="QUANTITY")
-    private Long quantity;
+    @NotNull
+    @Min(1)
+    private Integer quantity;
 
-    @Column(name="PRICE")
-    private Long price;
+    @NotNull
+    private Integer price;
 
-    @Column(name="UNIT_PRICE")
-    private Long unitPrice;
+    @Nullable
+    private Integer discount;
 
-    @Column(name="TAX")
-    private Long tax;
 
-    @Column(name="PROMOTION")
-    private Long promotion;
-
-    public Long getId() {
-        return id;
+    public Invoice getInvoice() {
+        return invoice;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public String getName() {
@@ -58,43 +59,27 @@ public class InvoiceItem {
         this.name = name;
     }
 
-    public Long getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public Long getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
-    public Long getUnitPrice() {
-        return unitPrice;
+    public Integer getDiscount() {
+        return discount;
     }
 
-    public void setUnitPrice(Long unitPrice) {
-        this.unitPrice = unitPrice;
-    }
-
-    public Long getTax() {
-        return tax;
-    }
-
-    public void setTax(Long tax) {
-        this.tax = tax;
-    }
-
-    public Long getPromotion() {
-        return promotion;
-    }
-
-    public void setPromotion(Long promotion) {
-        this.promotion = promotion;
+    public void setDiscount(Integer discount) {
+        this.discount = discount;
     }
 }
