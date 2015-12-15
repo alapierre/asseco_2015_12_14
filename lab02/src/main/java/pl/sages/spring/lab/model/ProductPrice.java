@@ -21,6 +21,7 @@ public class ProductPrice {
     @Temporal(TemporalType.DATE)
     @NotNull
     private Date dateFrom;
+    private VatCategory vatCategory;
 
     public long getId() {
         return id;
@@ -54,4 +55,11 @@ public class ProductPrice {
         this.dateFrom = dateFrom;
     }
 
+    public VatCategory getVatCategory() {
+        return vatCategory;
+    }
+
+    public void setVatCategory(VatCategory vatCategory) {
+        this.vatCategory = vatCategory;
+    }
 }
