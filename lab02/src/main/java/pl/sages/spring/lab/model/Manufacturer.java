@@ -1,5 +1,8 @@
 package pl.sages.spring.lab.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Manufacturer extends BaseEntity{
     private String companyName;
     private String location;

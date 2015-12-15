@@ -1,11 +1,10 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 
+@Entity
 public class Product extends BaseEntity{
     private String catalogNumber;
     private String name;
@@ -16,9 +15,9 @@ public class Product extends BaseEntity{
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     Set<ProductPrice> prices;
 
-    @OneToOne
-    @JoinColumn(name = "CATEGORY_ID")
-    private Category category;
+    @ManyToMany
+    @JoinTable(name = "PRODUCT_CATEGORIES", joinColumns=@JoinColumn(name="PRODUCT_ID"), inverseJoinColumns = @JoinColumn(name="CATEGORY_ID"))
+    private Collection<Category> categories;
 
     @OneToOne
     @JoinColumn(name = "MANUFACTURER_ID")
@@ -64,11 +63,4 @@ public class Product extends BaseEntity{
         this.prices = prices;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 }
