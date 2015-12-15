@@ -1,35 +1,23 @@
 package pl.sages.spring.lab.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by Administrator on 2015-12-15.
  */
-//@Entity
-//@Table(name="ADDRESSES")
+@Embeddable
 public class Address {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ADDRESS_ID", unique = true, nullable = false)
-    private Long id;
-
-    @Column(name="CITY")
+    @Size(max = 128)
     String city;
 
-    @Column(name="STREET")
+    @Size(max = 128)
     String street;
 
-    @Column(name="NUMBER")
+    @NotNull
     Integer number;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCity() {
         return city;

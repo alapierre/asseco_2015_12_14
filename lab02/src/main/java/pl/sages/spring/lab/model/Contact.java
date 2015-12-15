@@ -5,31 +5,15 @@ import javax.persistence.*;
 /**
  * Created by Administrator on 2015-12-15.
  */
-//@Entity
-//@Table(name="CONTACT")
+@Entity
 public class Contact {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ADDRESS_ID", unique = true, nullable = false)
-    private Long id;
-
-    @Column(name="CITY")
+    @Embedded
     private Address address;
 
-    @Column(name="EMAIL")
     private String email;
 
-    @Column(name="PHONE")
     private String phone;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getPhone() {
         return phone;
