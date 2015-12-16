@@ -4,6 +4,7 @@
 package pl.sages.spring.lab.web.controller;
 
 import org.springframework.http.HttpEntity;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +23,7 @@ import pl.sages.spring.lab.web.util.HttpEntityUtil;
 @RequestMapping("/rest/person")
 public class PersonResource {
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json;UTF-8")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Person load(@PathVariable int id) {
 
         Person p = new Person();
@@ -34,7 +35,7 @@ public class PersonResource {
 
     }
 
-    @RequestMapping( method = RequestMethod.GET, produces = "application/json;UTF-8")
+    @RequestMapping( method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Person loada(@RequestParam int id) {
 
         Person p = new Person();
@@ -43,9 +44,7 @@ public class PersonResource {
         p.setName("Kowalski");
 
         return p;
-
     }
-
 
     @RequestMapping(method = RequestMethod.POST)
     public HttpEntity<?> save(@RequestBody Person person) {

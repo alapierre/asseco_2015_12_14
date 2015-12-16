@@ -20,6 +20,9 @@ public class TestAspect extends AbstractJUnit4SpringContextTests {
     
     @Test
     public void test() {
+
+        System.out.println(bean.getClass());
+
         bean.someMethod(1);
         bean.method2();
     }
