@@ -83,8 +83,6 @@ public class InvoiceItem extends BaseEntity{
     @Override
     public String toString() {
         return "InvoiceItem{" +
-                "invoice=" + invoice +
-                ", product=" + product +
                 ", name='" + name + '\'' +
                 ", quantity=" + quantity +
                 ", price=" + price +

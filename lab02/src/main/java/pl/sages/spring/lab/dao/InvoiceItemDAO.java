@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface InvoiceItemDAO extends JpaRepository<InvoiceItem, Long> {
 
-    public InvoiceItem findByNameLikeIgnoreCase(String name);
+    public List<InvoiceItem> findByNameLikeIgnoreCase(String name);
 }

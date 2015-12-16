@@ -49,5 +49,13 @@ public class DemandOrderDataTest {
         List<DemandOrder> res = demandOrderDao.findBySupplierNameLikeIgnoreCase("Głowny%");
 
         System.out.println(res);
+
+        res = demandOrderDao.findByOrderDateBefore(new Date());
+
+        System.out.println(res);
+
+        res = demandOrderDao.findByOrderDateAfter(new Date());
+
+        System.out.println(res);
     }
 }
