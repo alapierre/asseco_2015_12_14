@@ -21,5 +21,10 @@ public class DemandOrder extends Order{
         this.supplier = supplier;
     }
 
-
+    @Override
+    public String toString() {
+        return "DemandOrder{" +
+                "supplier=" + supplier +
+                '}';
+    }
 }
