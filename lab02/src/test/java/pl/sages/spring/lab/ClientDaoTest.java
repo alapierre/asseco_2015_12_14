@@ -17,7 +17,7 @@ import pl.sages.spring.lab.model.Contact;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/context.xml")
 @TransactionConfiguration(defaultRollback = false)
-public class ClientDAOTest {
+public class ClientDaoTest {
 
     @Autowired
     private ClientDAO clientDAO;
@@ -26,9 +26,9 @@ public class ClientDAOTest {
     @Transactional
     public void testClientDao(){
         Client client = new Client();
-        Contact contact = new Contact();
-        contact.setPhone("48843179");
-        client.setContact(contact);
+//        Contact contact = new Contact();
+//        contact.setPhone("48843179");
+//        client.setContact(contact);
         clientDAO.save(client);
         Client c = clientDAO.findOne(client.getId());
         System.out.println(c);
