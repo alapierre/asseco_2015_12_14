@@ -12,4 +12,6 @@ import java.util.List;
 public interface DemandOrderDAO extends JpaRepository<DemandOrder, Long>{
 
     public List<DemandOrder> findBySupplierId(Long id);
+
+    public List<DemandOrder> findBySupplierNameLikeIgnoreCase(String name);
 }

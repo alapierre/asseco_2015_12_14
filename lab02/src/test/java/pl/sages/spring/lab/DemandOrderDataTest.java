@@ -46,7 +46,7 @@ public class DemandOrderDataTest {
 
         demandOrderDao.save(d);
 
-        List<DemandOrder> res = demandOrderDao.findBySupplierId(s.getId());
+        List<DemandOrder> res = demandOrderDao.findBySupplierNameLikeIgnoreCase("Głowny%");
 
         System.out.println(res);
     }
