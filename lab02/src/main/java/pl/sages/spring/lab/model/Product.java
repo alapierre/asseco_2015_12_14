@@ -62,4 +62,28 @@ public class Product extends BaseEntity{
     public void setPrices(Set<ProductPrice> prices) {
         this.prices = prices;
     }
+
+    public long getStockCount() {
+        return stockCount;
+    }
+
+    public void setStockCount(long stockCount) {
+        this.stockCount = stockCount;
+    }
+
+    public Collection<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Collection<Category> categories) {
+        this.categories = categories;
+    }
+
+    public Manufacturer getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+    }
 }
