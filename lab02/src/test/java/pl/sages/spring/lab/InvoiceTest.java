@@ -40,10 +40,10 @@ public class InvoiceTest {
         invoice.setBuyer(buyer);
         invoiceDAO.save(invoice);
 
-        Invoice res = invoiceDAO.findByBuyerAddressCity(buyerAddress.getCity());
-        System.out.println(res);
+        List<Invoice> res = invoiceDAO.findByBuyerAddressCity(buyerAddress.getCity());
+        System.out.println(res.get(0));
 
-        assert res.getBuyer().getAddress().getCity() == buyerAddress.getCity();
+        assert res.get(0).getBuyer().getAddress().getCity().equals(buyerAddress.getCity());
     }
 
     @Test
@@ -58,10 +58,10 @@ public class InvoiceTest {
         invoice.setSeller(seller);
         invoiceDAO.save(invoice);
 
-        Invoice res = invoiceDAO.findBySellerAddressCity(sellerAddress.getCity());
-        System.out.println(res);
+        List<Invoice> res = invoiceDAO.findBySellerAddressCity(sellerAddress.getCity());
+        System.out.println(res.get(0));
 
-        assert res.getSeller().getAddress().getCity() == sellerAddress.getCity();
+        assert res.get(0).getSeller().getAddress().getCity().equals(sellerAddress.getCity());
     }
 
     @Test
@@ -73,12 +73,11 @@ public class InvoiceTest {
         invoiceItem.setProduct(new Product());
         invoiceItem.setName("test");
         invoiceItemDAO.save(invoiceItem);
-        //invoiceItemDAO.flush();
 
-        InvoiceItem res = invoiceItemDAO.findByNameLikeIgnoreCase("%test");
-        System.out.println(res);
+        List<InvoiceItem> res = invoiceItemDAO.findByNameLikeIgnoreCase("%test");
+        System.out.println(res.get(0));
 
-        assert res.getName() == invoiceItem.getName();
+        assert res.get(0).getName().equals(invoiceItem.getName());
     }
 
 
