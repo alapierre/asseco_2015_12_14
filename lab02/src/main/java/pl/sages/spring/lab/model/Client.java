@@ -23,4 +23,10 @@ public class Client extends Person {
         this.contact = contact;
     }
 
+    @Override
+    public String toString() {
+        return "Client{" +
+                "contact=" + contact +
+                '}';
+    }
 }
