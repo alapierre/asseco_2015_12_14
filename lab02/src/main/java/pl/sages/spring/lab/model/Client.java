@@ -1,9 +1,6 @@
 package pl.sages.spring.lab.model;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 /**
  * Created by Administrator on 2015-12-15.
@@ -11,8 +8,9 @@ import javax.persistence.OneToOne;
 @Entity
 public class Client extends Person {
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contact_id")
+
     private Contact contact;
 
     public Contact getContact() {

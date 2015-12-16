@@ -26,9 +26,9 @@ public class ClientDaoTest {
     @Transactional
     public void testClientDao(){
         Client client = new Client();
-//        Contact contact = new Contact();
-//        contact.setPhone("48843179");
-//        client.setContact(contact);
+        Contact contact = new Contact();
+        contact.setPhone("48843179");
+        client.setContact(contact);
         clientDAO.save(client);
         Client c = clientDAO.findOne(client.getId());
         System.out.println(c);

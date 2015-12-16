@@ -32,7 +32,7 @@ public class EmployeeDAOTest {
         Employee employee1 = new Employee();
         employee1.setSalary(1244);
         employeeDAO.save(employee1);
-        List<Employee> employeeList = employeeDAO.findBySalaryGreaterThan(1000);
+        List<Employee> employeeList = employeeDAO.findBySalaryGreaterThan(2000);
         System.out.println(employeeList);
         assert employeeList.contains(employee);
     }
