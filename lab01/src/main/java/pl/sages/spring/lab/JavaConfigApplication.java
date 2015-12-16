@@ -2,7 +2,6 @@ package pl.sages.spring.lab;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigBeanDefinitionParser;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,7 +21,7 @@ public class JavaConfigApplication {
     @Bean
     public Person person() {
         Person person = new Person();
-        person.setAddress(address());
+        //person.setAddress(address());
         return person;
 
     }

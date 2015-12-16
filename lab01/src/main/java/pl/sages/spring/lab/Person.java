@@ -3,8 +3,6 @@
  */
 package pl.sages.spring.lab;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -21,13 +19,13 @@ public class Person {
     private String lastName;
 
     @Value("Gdansk:Warszawska:5")
-    private Adress adress;
+    private Address adress;
 
-    public Adress getAdress() {
+    public Address getAdress() {
         return adress;
     }
 
-    public void setAdress(Adress adress) {
+    public void setAdress(Address adress) {
         this.adress = adress;
     }
 

@@ -27,7 +27,7 @@
 
     <context:component-scan base-package="pl.sages.spring.lab"/>
 
-    <!--<jpa:repositories base-package="pl.sages.spring.lab.dao"/>-->
+    <jpa:repositories base-package="pl.sages.spring.lab.dao"/>
 
     <!-- Data source -->
     <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->

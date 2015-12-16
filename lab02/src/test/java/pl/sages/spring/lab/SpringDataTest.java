@@ -1,8 +1,7 @@
-package pl.sages.spring.lab;
-
 /**
- * Copyright 2015-12-15 the original author or authors.
+ * Copyright 2015-12-16 the original author or authors.
  */
+package pl.sages.spring.lab;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 
-import pl.sages.spring.lab.dao.em.CategoryEMDAO;
+import pl.sages.spring.lab.dao.CategoryDAO;
 import pl.sages.spring.lab.model.Category;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * @author Adrian Lapierre {@literal <adrian@soft-project.pl>}
@@ -22,53 +22,47 @@ import javax.transaction.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "/context.xml")
 @TransactionConfiguration(defaultRollback = false)
-public class TextContext {
+public class SpringDataTest {
 
     @Autowired
-    private CategoryEMDAO categoryEMDAO;
-
-    @Test
-    public void test() {
-        System.out.println("go.");
-    }
+    private CategoryDAO categoryDAO;
 
     @Test
     @Transactional
-    public void saveOne() {
+    public void test() {
+        System.out.println("!!!!");
 
         Category category = new Category();
 
         category.setName("Kategoria 1");
         category.setDescription("Ala ma kota");
 
-        categoryEMDAO.save(category);
+        categoryDAO.save(category);
 
         System.out.println(category.getId());
 
-        Category res = categoryEMDAO.load(category.getId());
+        Category res = categoryDAO.findOne(category.getId());
 
         assert res.getId() == category.getId();
+
 
     }
 
     @Test
-    @Transactional
-    public void saveTree() {
+    public void testFind() {
 
+        List<Category> res = categoryDAO.findByNameLikeIgnoreCase("ala ma kota%");
 
-        Category category = new Category();
+        System.out.println(res);
 
-        category.setName("Kategoria 1");
-        category.setDescription("Ala ma kota");
+    }
 
-        Category child = new Category();
-        child.setName("pod kategoria");
-        child.setDescription("dkjdjdjdj");
+    @Test
+    public void testFindByQuery() {
 
-        category.addChildCategory(child);
+        List<Category> res = categoryDAO.findByQery("ala ma kota%");
 
-        categoryEMDAO.save(category);
-
+        System.out.println(res);
 
     }
 
