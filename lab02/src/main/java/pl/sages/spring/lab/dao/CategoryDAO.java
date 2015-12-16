@@ -20,4 +20,6 @@ public interface CategoryDAO extends JpaRepository<Category, Long> {
     @Query("select c from Category c where c.name like ?1")
     public List<Category> findByQery(String name);
 
+
+
 }
