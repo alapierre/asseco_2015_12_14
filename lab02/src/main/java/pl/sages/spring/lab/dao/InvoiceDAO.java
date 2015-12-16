@@ -11,8 +11,8 @@ import java.util.List;
  */
 public interface InvoiceDAO extends JpaRepository<Invoice, Long> {
 
-    public Invoice findBySellerAddressCity(String city);
+    public List<Invoice> findBySellerAddressCity(String city);
 
-    public Invoice findByBuyerAddressCity(String city);
+    public List<Invoice> findByBuyerAddressCity(String city);
 
 }
